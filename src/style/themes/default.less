@@ -1,0 +1,186 @@
+@hd: 1 * @rpx;
+@rpx: 0.5 * @hd;
+
+// The prefix to use on all css classes from vantr.
+@vanr-prefix: vanr;
+
+// Color Palette
+@black: #000;
+@white: #fff;
+@gray-1: #f7f8fa;
+@gray-2: #f2f3f5;
+@gray-3: #ebedf0;
+@gray-4: #dcdee0;
+@gray-5: #c8c9cc;
+@gray-6: #969799;
+@gray-7: #646566;
+@gray-8: #323233;
+@red: #ee0a24;
+@blue: #1989fa;
+@orange: #ff976a;
+@orange-dark: #ed6a0c;
+@orange-light: #fffbe8;
+@green: #07c160;
+
+// Gradient Colors
+@gradient-red: linear-gradient(to right, #ff6034, #ee0a24);
+@gradient-orange: linear-gradient(to right, #ffd01e, #ff8917);
+
+// Component Colors
+@primary-color: var(--vanr-blue);
+@success-color: var(--vanr-green);
+@danger-color: var(--vanr-red);
+@warning-color: var(--vanr-orange);
+@text-color: var(--vanr-gray-8);
+@active-color: var(--vanr-gray-2);
+@active-opacity: 0.7;
+@disabled-opacity: 0.5;
+@background-color: var(--vanr-gray-1);
+@background-color-light: #fafafa;
+@text-link-color: #576b95;
+
+// Padding
+@padding-base: 8 * @rpx;
+@padding-xs: @padding-base * 2;
+@padding-sm: @padding-base * 3;
+@padding-md: @padding-base * 4;
+@padding-lg: @padding-base * 6;
+@padding-xl: @padding-base * 8;
+
+// Font
+@font-size-xs: 20 * @rpx;
+@font-size-sm: 24 * @rpx;
+@font-size-md: 28 * @rpx;
+@font-size-lg: 32 * @rpx;
+@font-weight-bold: 500;
+@line-height-xs: 28 * @rpx;
+@line-height-sm: 36 * @rpx;
+@line-height-md: 40 * @rpx;
+@line-height-lg: 44 * @rpx;
+@base-font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+  Helvetica, Segoe UI, Arial, Roboto, 'PingFang SC', 'miui', 'Hiragino Sans GB',
+  'Microsoft Yahei', sans-serif;
+@price-integer-font-family: Avenir-Heavy, PingFang SC, Helvetica Neue, Arial,
+  sans-serif;
+
+// Animation
+@animation-duration-base: 0.3s;
+@animation-duration-fast: 0.2s;
+@animation-timing-function-enter: ease-out;
+@animation-timing-function-leave: ease-in;
+
+// Border
+@border-color: var(--vanr-gray-3);
+@border-width-base: 2 * @rpx;
+@border-radius-sm: 4 * @rpx;
+@border-radius-md: 8 * @rpx;
+@border-radius-lg: 16 * @rpx;
+@border-radius-max: 50vh;
+
+// Button
+@button-mini-height: 48 * @rpx;
+@button-mini-padding: 0 var(--vanr-padding-base);
+@button-mini-font-size: var(--vanr-font-size-xs);
+@button-small-height: 64 * @rpx;
+@button-small-padding: 0 var(--vanr-padding-xs);
+@button-small-font-size: var(--vanr-font-size-sm);
+@button-normal-padding: 0 30 * @rpx;
+@button-normal-font-size: var(--vanr-font-size-md);
+@button-large-height: 100 * @rpx;
+@button-default-height: 88 * @rpx;
+@button-default-line-height: 1.2;
+@button-default-font-size: var(--vanr-font-size-lg);
+@button-default-color: var(--vanr-text-color);
+@button-default-background-color: var(--vanr-white);
+@button-default-border-color: var(--vanr-border-color);
+@button-primary-color: var(--vanr-white);
+@button-primary-background-color: var(--vanr-primary-color);
+@button-primary-border-color: var(--vanr-primary-color);
+@button-success-color: var(--vanr-white);
+@button-success-background-color: var(--vanr-success-color);
+@button-success-border-color: var(--vanr-success-color);
+@button-danger-color: var(--vanr-white);
+@button-danger-background-color: var(--vanr-danger-color);
+@button-danger-border-color: var(--vanr-danger-color);
+@button-warning-color: var(--vanr-white);
+@button-warning-background-color: var(--vanr-warning-color);
+@button-warning-border-color: var(--vanr-warning-color);
+@button-border-width: var(--vanr-border-width-base);
+@button-border-radius: var(--vanr-border-radius-sm);
+@button-round-border-radius: var(--vanr-border-radius-max);
+@button-plain-background-color: var(--vanr-white);
+@button-disabled-opacity: var(--vanr-disabled-opacity);
+@button-icon-size: 1.2em;
+@button-loading-icon-size: 40 * @rpx;
+
+:root {
+  // Color Palette
+  --vanr-black: @black;
+  --vanr-white: @white;
+  --vanr-gray-1: @gray-1;
+  --vanr-gray-2: @gray-2;
+  --vanr-gray-3: @gray-3;
+  --vanr-gray-4: @gray-4;
+  --vanr-gray-5: @gray-5;
+  --vanr-gray-6: @gray-6;
+  --vanr-gray-7: @gray-7;
+  --vanr-gray-8: @gray-8;
+  --vanr-red: @red;
+  --vanr-blue: @blue;
+  --vanr-orange: @orange;
+  --vanr-orange-dark: @orange-dark;
+  --vanr-orange-light: @orange-light;
+  --vanr-green: @green;
+
+  // Gradient Colors
+  --vanr-gradient-red: @gradient-red;
+  --vanr-gradient-orange: @gradient-orange;
+
+  // Component Colors
+  --vanr-primary-color: @primary-color;
+  --vanr-success-color: @success-color;
+  --vanr-danger-color: @danger-color;
+  --vanr-warning-color: @warning-color;
+  --vanr-text-color: @text-color;
+  --vanr-active-color: @active-color;
+  --vanr-active-opacity: @active-opacity;
+  --vanr-disabled-opacity: @disabled-opacity;
+  --vanr-background-color: @background-color;
+  --vanr-background-color-light: @background-color-light;
+  --vanr-text-link-color: @text-link-color;
+
+  // Padding
+  --vanr-padding-base: @padding-base;
+  --vanr-padding-xs: @padding-xs;
+  --vanr-padding-sm: @padding-sm;
+  --vanr-padding-md: @padding-md;
+  --vanr-padding-lg: @padding-lg;
+  --vanr-padding-xl: @padding-xl;
+
+  // Font
+  --vanr-font-size-xs: @font-size-xs;
+  --vanr-font-size-sm: @font-size-sm;
+  --vanr-font-size-md: @font-size-md;
+  --vanr-font-size-lg: @font-size-lg;
+  --vanr-font-weight-bold: @font-weight-bold;
+  --vanr-line-height-xs: @line-height-xs;
+  --vanr-line-height-sm: @line-height-sm;
+  --vanr-line-height-md: @line-height-md;
+  --vanr-line-height-lg: @line-height-lg;
+  --vanr-base-font-family: @base-font-family;
+  --vanr-price-integer-font-family: @price-integer-font-family;
+
+  // Animation
+  --vanr-animation-duration-base: @animation-duration-base;
+  --vanr-animation-duration-fast: @animation-duration-fast;
+  --vanr-animation-timing-function-enter: @animation-timing-function-enter;
+  --vanr-animation-timing-function-leave: @animation-timing-function-leave;
+
+  // Border
+  --vanr-border-color: @border-color;
+  --vanr-border-width-base: @border-width-base;
+  --vanr-border-radius-sm: @border-radius-sm;
+  --vanr-border-radius-md: @border-radius-md;
+  --vanr-border-radius-lg: @border-radius-lg;
+  --vanr-border-radius-max: @border-radius-max;
+}

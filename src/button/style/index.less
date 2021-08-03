@@ -1,0 +1,213 @@
+@import '../../style/themes/index.less';
+
+:root {
+  --vanr-button-mini-height: @button-mini-height;
+  --vanr-button-mini-padding: @button-mini-padding;
+  --vanr-button-mini-font-size: @button-mini-font-size;
+  --vanr-button-small-height: @button-small-height;
+  --vanr-button-small-padding: @button-small-padding;
+  --vanr-button-small-font-size: @button-small-font-size;
+  --vanr-button-normal-padding: @button-normal-padding;
+  --vanr-button-normal-font-size: @button-normal-font-size;
+  --vanr-button-large-height: @button-large-height;
+  --vanr-button-default-height: @button-default-height;
+  --vanr-button-default-line-height: @button-default-line-height;
+  --vanr-button-default-font-size: @button-default-font-size;
+  --vanr-button-default-color: @button-default-color;
+  --vanr-button-default-background-color: @button-default-background-color;
+  --vanr-button-default-border-color: @button-default-border-color;
+  --vanr-button-primary-color: @button-primary-color;
+  --vanr-button-primary-background-color: @button-primary-background-color;
+  --vanr-button-primary-border-color: @button-primary-border-color;
+  --vanr-button-success-color: @button-success-color;
+  --vanr-button-success-background-color: @button-success-background-color;
+  --vanr-button-success-border-color: @button-success-border-color;
+  --vanr-button-danger-color: @button-danger-color;
+  --vanr-button-danger-background-color: @button-danger-background-color;
+  --vanr-button-danger-border-color: @button-danger-border-color;
+  --vanr-button-warning-color: @button-warning-color;
+  --vanr-button-warning-background-color: @button-warning-background-color;
+  --vanr-button-warning-border-color: @button-warning-border-color;
+  --vanr-button-border-width: @button-border-width;
+  --vanr-button-border-radius: @button-border-radius;
+  --vanr-button-round-border-radius: @button-round-border-radius;
+  --vanr-button-plain-background-color: @button-plain-background-color;
+  --vanr-button-disabled-opacity: @button-disabled-opacity;
+  --vanr-button-icon-size: @button-icon-size;
+  --vanr-button-loading-icon-size: @button-loading-icon-size;
+}
+
+@prefixCls: ~'@{vanr-prefix}-button';
+
+.@{prefixCls} {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  height: var(--vanr-button-default-height);
+  margin: 0;
+  padding: 0;
+  font-size: var(--vanr-button-default-font-size);
+  line-height: var(--vanr-button-default-line-height);
+  text-align: center;
+  border-radius: var(--vanr-button-border-radius);
+  cursor: pointer;
+  transition: opacity var(--vanr-animation-duration-fast);
+  -webkit-appearance: none;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background-color: var(--vanr-black);
+    border: inherit;
+    border-color: var(--vanr-black);
+    border-radius: inherit;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    content: ' ';
+  }
+
+  &:active::before {
+    opacity: 0.1;
+  }
+
+  &-loading,
+  &-disabled {
+    &::before {
+      display: none;
+    }
+  }
+
+  &-default {
+    color: var(--vanr-button-default-color);
+    background-color: var(--vanr-button-default-background-color);
+    border: var(--vanr-button-border-width) solid
+      var(--vanr-button-default-border-color);
+  }
+
+  &-primary {
+    color: var(--vanr-button-primary-color);
+    background-color: var(--vanr-button-primary-background-color);
+    border: var(--vanr-button-border-width) solid
+      var(--vanr-button-primary-border-color);
+  }
+
+  &-success {
+    color: var(--vanr-button-success-color);
+    background-color: var(--vanr-button-success-background-color);
+    border: var(--vanr-button-border-width) solid
+      var(--vanr-button-success-border-color);
+  }
+
+  &-warning {
+    color: var(--vanr-button-warning-color);
+    background-color: var(--vanr-button-warning-background-color);
+    border: var(--vanr-button-border-width) solid
+      var(--vanr-button-warning-border-color);
+  }
+
+  &-danger {
+    color: var(--vanr-button-danger-color);
+    background-color: var(--vanr-button-danger-background-color);
+    border: var(--vanr-button-border-width) solid
+      var(--vanr-button-danger-border-color);
+  }
+
+  &-plain {
+    background-color: var(--vanr-button-plain-background-color);
+
+    &.@{prefixCls}-primary {
+      color: var(--vanr-button-primary-background-color);
+    }
+
+    &.@{prefixCls}-success {
+      color: var(--vanr-button-success-background-color);
+    }
+
+    &.@{prefixCls}-warning {
+      color: var(--vanr-button-warning-background-color);
+    }
+
+    &.@{prefixCls}-danger {
+      color: var(--vanr-button-danger-background-color);
+    }
+  }
+
+  &-large {
+    width: 100%;
+    height: var(--vanr-button-large-height);
+  }
+
+  &-normal {
+    padding: var(--vanr-button-normal-padding);
+    font-size: var(--vanr-button-normal-font-size);
+  }
+
+  &-small {
+    height: var(--vanr-button-small-height);
+    padding: var(--vanr-button-small-padding);
+    font-size: var(--vanr-button-small-font-size);
+  }
+
+  &-mini {
+    height: var(--vanr-button-mini-height);
+    padding: var(--vanr-button-mini-padding);
+    font-size: var(--vanr-button-mini-font-size);
+
+    & + .@{prefixCls}-mini {
+      margin-left: var(--vanr-padding-base);
+    }
+  }
+
+  &-block {
+    display: block;
+    width: 100%;
+  }
+
+  &-disabled {
+    cursor: not-allowed;
+    opacity: var(--vanr-button-disabled-opacity);
+  }
+
+  &-loading {
+    cursor: default;
+  }
+
+  &-round {
+    border-radius: var(--vanr-button-round-border-radius);
+  }
+
+  &-square {
+    border-radius: 0;
+  }
+
+  &-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    // fix icon vertical align
+    // see: https://github.com/youzan/vant/issues/7617
+    &::before {
+      content: ' ';
+    }
+  }
+
+  &-icon {
+    font-size: var(--vanr-button-icon-size);
+    line-height: inherit;
+    svg {
+      display: block;
+    }
+  }
+
+  &-icon + &-text,
+  &-icon-loading + &-text,
+  &-text + &-icon,
+  &-text + &-icon-loading {
+    margin-left: var(--vanr-padding-base);
+  }
+}
