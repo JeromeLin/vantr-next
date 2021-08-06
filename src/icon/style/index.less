@@ -1,0 +1,51 @@
+@import '../../style/themes/index.less';
+
+@prefixCls: ~'@{vanr-prefix}-icon';
+
+:root {
+  --vanr-icon-size-xs: @icon-size-xs;
+  --vanr-icon-size-sm: @icon-size-sm;
+  --vanr-icon-size-md: @icon-size-md;
+  --vanr-icon-size-lg: @icon-size-lg;
+}
+
+.@{prefixCls} {
+  display: inline-block;
+  color: inherit;
+  font-size: inherit;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  line-height: 0;
+  text-align: center;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  vertical-align: -0.125em;
+
+  &-spin svg {
+    animation: vanr-icon-spin 1s infinite linear;
+  }
+
+  &-rtl {
+    transform: scaleX(-1);
+  }
+
+  &-xs {
+    font-size: var(--vanr-icon-size-xs);
+  }
+  &-sm {
+    font-size: var(--vanr-icon-size-sm);
+  }
+  &-md {
+    font-size: var(--vanr-icon-size-md);
+  }
+  &-lg {
+    font-size: var(--vanr-icon-size-lg);
+  }
+}
+
+@keyframes vanr-icon-spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}

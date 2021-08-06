@@ -3,7 +3,7 @@ export interface BaseProps {
    * 设置组件样式前缀
    * @description.en-US Set component className prefix
    */
-  prefixCls: string;
+  prefixCls?: string;
   /**
    * 组件样式名
    * @description.en-US Set component className

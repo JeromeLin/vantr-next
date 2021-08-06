@@ -1,8 +1,9 @@
 import * as React from 'react';
 import classnames from 'classnames';
+import Loading, { LoadingType } from '../loading';
 import type { BaseProps } from '../_internal/base-props';
 import { ConfigContext } from '../config-provider/context';
-import './style/index';
+import './style';
 
 export interface ButtonProps extends BaseProps {
   /**
@@ -14,18 +15,22 @@ export interface ButtonProps extends BaseProps {
   /**
    * 设置按钮大小
    * @description.en-US Set the size of button
-   * @default normal
+   * @default md
    */
-  size?: 'nomral' | 'large' | 'small' | 'mini';
+  size?: 'lg' | 'md' | 'sm' | 'xs';
   /**
    * 设置按钮形状
    * @description.en-US Can be set button shape
    */
-  shape?: 'round' | 'circle';
+  shape?: 'square' | 'round' | 'circle';
   /**
    * 朴素按钮
    */
   plain?: boolean;
+  /**
+   * 是否使用 0.5px 边框
+   */
+  hairline?: boolean;
   /**
    * 设置按钮的图标组件
    * @description.en-US Set the icon component of button
@@ -63,7 +68,7 @@ export interface ButtonProps extends BaseProps {
    * @description.en-US Set button loading status display icon type
    * @default circular
    */
-  loadingType?: 'circular';
+  loadingType?: LoadingType;
   /**
    * 按钮失效状态
    * @description.en-US Disabled state of button
@@ -88,11 +93,12 @@ const Button: React.FC<ButtonProps> = (props) => {
     className,
     style,
     type = 'default',
-    size = 'normal',
+    size = 'md',
     shape,
     icon,
     iconPosition = 'left',
     plain,
+    hairline,
     color,
     block,
     loading,
@@ -104,6 +110,7 @@ const Button: React.FC<ButtonProps> = (props) => {
     children,
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
+  const prefix = getPrefixCls();
   const prefixCls = getPrefixCls('button', customizePrefixCls);
   const classes = classnames(
     prefixCls,
@@ -115,6 +122,8 @@ const Button: React.FC<ButtonProps> = (props) => {
       [`${prefixCls}-block`]: block,
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-disabled`]: disabled,
+      [`${prefixCls}-hairline`]: hairline,
+      [`${prefix}-hairline-surround`]: hairline,
     },
     className,
   );
@@ -148,7 +157,13 @@ const Button: React.FC<ButtonProps> = (props) => {
 
   const renderIcon = React.useCallback(() => {
     if (loading) {
-      return <div className={`${prefixCls}-icon-loading`}>{icon}</div>;
+      return (
+        <Loading
+          className={`${prefixCls}-icon-loading`}
+          type={loadingType}
+          size={size}
+        />
+      );
     }
     if (icon) {
       return <div className={`${prefixCls}-icon`}>{icon}</div>;

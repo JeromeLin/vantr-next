@@ -1,0 +1,18 @@
+@import '../../style/themes/index.less';
+
+.demo-block {
+  padding: @padding-md 0;
+
+  &-title,
+  &-content {
+    padding: 0 @padding-md;
+  }
+
+  &-title {
+    color: rgba(69, 90, 100, 0.6);
+    font-size: @font-size-md;
+    + .demo-block-content {
+      margin-top: @padding-md;
+    }
+  }
+}

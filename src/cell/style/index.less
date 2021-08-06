@@ -1,0 +1,128 @@
+@import '../../style/themes/index.less';
+@import '../../style/mixins/hairline.less';
+
+@prefixCls: ~'@{vanr-prefix}-cell';
+
+:root {
+  --vanr-cell-font-size: @cell-font-size;
+  --vanr-cell-vertical-padding: @cell-vertical-padding;
+  --vanr-cell-horizontal-padding: @cell-horizontal-padding;
+  --vanr-cell-text-color: @cell-text-color;
+  --vanr-cell-background-color: @cell-background-color;
+  --vanr-cell-border-color: @cell-border-color;
+  --vanr-cell-active-color: @cell-active-color;
+  --vanr-cell-required-color: @cell-required-color;
+  --vanr-cell-brief-color: @cell-brief-color;
+  --vanr-cell-brief-font-size: @cell-brief-font-size;
+  --vanr-cell-brief-line-height: @cell-brief-line-height;
+  --vanr-cell-brief-margin-top: @cell-brief-margin-top;
+  --vanr-cell-extra-color: @cell-extra-color;
+  --vanr-cell-icon-size: @cell-icon-size;
+  --vanr-cell-right-icon-color: @cell-right-icon-color;
+  --vanr-cell-large-vertical-padding: @cell-large-vertical-padding;
+  --vanr-cell-large-content-font-size: @cell-large-content-font-size;
+  --vanr-cell-large-brief-font-size: @cell-large-brief-font-size;
+}
+
+.@{prefixCls} {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--vanr-cell-vertical-padding) var(--vanr-cell-horizontal-padding);
+  background-color: var(--vanr-cell-background-color);
+  color: var(--vanr-cell-text-color);
+  font-size: var(--vanr-cell-font-size);
+
+  &::after {
+    .hairline-bottom(var(--vanr-cell-border-color), var(--vanr-padding-md), var(--vanr-padding-md));
+  }
+
+  &:last-child::after,
+  &-borderless::after {
+    display: none;
+  }
+
+  &-brief {
+    margin-top: var(--vanr-cell-brief-margin-top);
+    color: var(--vanr-cell-brief-color);
+    font-size: var(--vanr-cell-brief-font-size);
+    line-height: var(--vanr-cell-brief-line-height);
+  }
+
+  &-content,
+  &-extra {
+    flex: 1;
+  }
+
+  &-extra {
+    position: relative;
+    overflow: hidden;
+    color: var(--vanr-cell-extra-color);
+    text-align: right;
+    vertical-align: middle;
+    word-wrap: break-word;
+
+    &-alone {
+      color: var(--vanr-text-color);
+      text-align: left;
+    }
+  }
+
+  &-icon {
+    margin-right: var(--vanr-padding-base);
+    font-size: var(--vanr-cell-icon-size);
+  }
+
+  &-arrow {
+    margin-left: var(--vanr-padding-base);
+    color: var(--vanr-cell-right-icon-color);
+  }
+
+  &-clickable {
+    cursor: pointer;
+    transition: background-color var(--vanr-animation-duration-fast);
+
+    &:active {
+      background-color: var(--vanr-cell-active-color);
+    }
+  }
+
+  &-required {
+    overflow: visible;
+
+    &::before {
+      position: absolute;
+      left: var(--vanr-padding-xs);
+      color: var(--vanr-cell-required-color);
+      content: '*';
+      font-size: var(--vanr-cell-font-size);
+    }
+  }
+
+  &-top {
+    align-items: flex-start;
+  }
+
+  &-middle {
+    align-items: center;
+  }
+
+  &-bottom {
+    align-items: flex-end;
+  }
+
+  &-large {
+    padding-top: var(--vanr-cell-large-vertical-padding);
+    padding-bottom: var(--vanr-cell-large-vertical-padding);
+
+    .@{prefixCls}-content {
+      font-size: var(--vanr-cell-large-content-font-size);
+    }
+
+    .@{prefixCls}-brief {
+      font-size: var(--vanr-cell-large-brief-font-size);
+    }
+  }
+}

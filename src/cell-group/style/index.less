@@ -1,0 +1,35 @@
+@import '../../style/themes/index.less';
+
+@prefixCls: ~'@{vanr-prefix}-cell-group';
+
+:root {
+  --vanr-cell-group-background-color: @cell-group-background-color;
+  --vanr-cell-group-title-color: @cell-group-title-color;
+  --vanr-cell-group-title-padding: @cell-group-title-padding;
+  --vanr-cell-group-title-font-size: @cell-group-title-font-size;
+  --vanr-cell-group-title-line-height: @cell-group-title-line-height;
+  --vanr-cell-group-inset-padding: @cell-group-inset-padding;
+  --vanr-cell-group-inset-border-radius: @cell-group-inset-border-radius;
+  --vanr-cell-group-inset-title-padding: @cell-group-inset-title-padding;
+}
+
+.@{prefixCls} {
+  background-color: var(--vanr-cell-group-background-color);
+
+  &-inset {
+    overflow: hidden;
+    margin: var(--vanr-cell-group-inset-padding);
+    border-radius: var(--vanr-cell-group-inset-border-radius);
+  }
+
+  &-title {
+    padding: var(--vanr-cell-group-title-padding);
+    color: var(--vanr-cell-group-title-color);
+    font-size: var(--vanr-cell-group-title-font-size);
+    line-height: var(--vanr-cell-group-title-line-height);
+
+    &-inset {
+      padding: var(--vanr-cell-group-inset-title-padding);
+    }
+  }
+}

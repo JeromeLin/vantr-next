@@ -1,15 +1,18 @@
 @import '../../style/themes/index.less';
 
+@prefixCls: ~'@{vanr-prefix}-button';
+
 :root {
-  --vanr-button-mini-height: @button-mini-height;
-  --vanr-button-mini-padding: @button-mini-padding;
-  --vanr-button-mini-font-size: @button-mini-font-size;
-  --vanr-button-small-height: @button-small-height;
-  --vanr-button-small-padding: @button-small-padding;
-  --vanr-button-small-font-size: @button-small-font-size;
-  --vanr-button-normal-padding: @button-normal-padding;
-  --vanr-button-normal-font-size: @button-normal-font-size;
-  --vanr-button-large-height: @button-large-height;
+  --vanr-button-xs-height: @button-xs-height;
+  --vanr-button-xs-padding: @button-xs-padding;
+  --vanr-button-xs-font-size: @button-xs-font-size;
+  --vanr-button-sm-height: @button-sm-height;
+  --vanr-button-sm-padding: @button-sm-padding;
+  --vanr-button-sm-font-size: @button-sm-font-size;
+  --vanr-button-md-height: @button-md-height;
+  --vanr-button-md-padding: @button-md-padding;
+  --vanr-button-md-font-size: @button-md-font-size;
+  --vanr-button-lg-height: @button-lg-height;
   --vanr-button-default-height: @button-default-height;
   --vanr-button-default-line-height: @button-default-line-height;
   --vanr-button-default-font-size: @button-default-font-size;
@@ -35,24 +38,23 @@
   --vanr-button-disabled-opacity: @button-disabled-opacity;
   --vanr-button-icon-size: @button-icon-size;
   --vanr-button-loading-icon-size: @button-loading-icon-size;
+  --vanr-button-icon-padding: @padding-xs;
 }
-
-@prefixCls: ~'@{vanr-prefix}-button';
 
 .@{prefixCls} {
   position: relative;
   display: inline-block;
-  box-sizing: border-box;
   height: var(--vanr-button-default-height);
-  margin: 0;
+  box-sizing: border-box;
   padding: 0;
+  margin: 0;
+  -webkit-appearance: none;
+  border-radius: var(--vanr-button-border-radius);
+  cursor: pointer;
   font-size: var(--vanr-button-default-font-size);
   line-height: var(--vanr-button-default-line-height);
   text-align: center;
-  border-radius: var(--vanr-button-border-radius);
-  cursor: pointer;
   transition: opacity var(--vanr-animation-duration-fast);
-  -webkit-appearance: none;
 
   &::before {
     position: absolute;
@@ -60,13 +62,13 @@
     left: 50%;
     width: 100%;
     height: 100%;
-    background-color: var(--vanr-black);
     border: inherit;
     border-color: var(--vanr-black);
+    background-color: var(--vanr-black);
     border-radius: inherit;
-    transform: translate(-50%, -50%);
-    opacity: 0;
     content: ' ';
+    opacity: 0;
+    transform: translate(-50%, -50%);
   }
 
   &:active::before {
@@ -81,38 +83,38 @@
   }
 
   &-default {
-    color: var(--vanr-button-default-color);
-    background-color: var(--vanr-button-default-background-color);
     border: var(--vanr-button-border-width) solid
       var(--vanr-button-default-border-color);
+    background-color: var(--vanr-button-default-background-color);
+    color: var(--vanr-button-default-color);
   }
 
   &-primary {
-    color: var(--vanr-button-primary-color);
-    background-color: var(--vanr-button-primary-background-color);
     border: var(--vanr-button-border-width) solid
       var(--vanr-button-primary-border-color);
+    background-color: var(--vanr-button-primary-background-color);
+    color: var(--vanr-button-primary-color);
   }
 
   &-success {
-    color: var(--vanr-button-success-color);
-    background-color: var(--vanr-button-success-background-color);
     border: var(--vanr-button-border-width) solid
       var(--vanr-button-success-border-color);
+    background-color: var(--vanr-button-success-background-color);
+    color: var(--vanr-button-success-color);
   }
 
   &-warning {
-    color: var(--vanr-button-warning-color);
-    background-color: var(--vanr-button-warning-background-color);
     border: var(--vanr-button-border-width) solid
       var(--vanr-button-warning-border-color);
+    background-color: var(--vanr-button-warning-background-color);
+    color: var(--vanr-button-warning-color);
   }
 
   &-danger {
-    color: var(--vanr-button-danger-color);
-    background-color: var(--vanr-button-danger-background-color);
     border: var(--vanr-button-border-width) solid
       var(--vanr-button-danger-border-color);
+    background-color: var(--vanr-button-danger-background-color);
+    color: var(--vanr-button-danger-color);
   }
 
   &-plain {
@@ -135,28 +137,28 @@
     }
   }
 
-  &-large {
+  &-lg {
     width: 100%;
-    height: var(--vanr-button-large-height);
+    height: var(--vanr-button-lg-height);
   }
 
-  &-normal {
-    padding: var(--vanr-button-normal-padding);
-    font-size: var(--vanr-button-normal-font-size);
+  &-md {
+    padding: var(--vanr-button-md-padding);
+    font-size: var(--vanr-button-md-font-size);
   }
 
-  &-small {
-    height: var(--vanr-button-small-height);
-    padding: var(--vanr-button-small-padding);
-    font-size: var(--vanr-button-small-font-size);
+  &-sm {
+    height: var(--vanr-button-sm-height);
+    padding: var(--vanr-button-sm-padding);
+    font-size: var(--vanr-button-sm-font-size);
   }
 
-  &-mini {
-    height: var(--vanr-button-mini-height);
-    padding: var(--vanr-button-mini-padding);
-    font-size: var(--vanr-button-mini-font-size);
+  &-xs {
+    height: var(--vanr-button-xs-height);
+    padding: var(--vanr-button-xs-padding);
+    font-size: var(--vanr-button-xs-font-size);
 
-    & + .@{prefixCls}-mini {
+    & + .@{prefixCls}-xs {
       margin-left: var(--vanr-padding-base);
     }
   }
@@ -183,14 +185,37 @@
     border-radius: 0;
   }
 
+  &-circle {
+    overflow: hidden;
+    border-radius: var(--vanr-button-round-border-radius);
+    &.@{prefixCls} {
+      &-lg {
+        width: var(--vanr-button-lg-height);
+        height: var(--vanr-button-lg-height);
+      }
+
+      &-md {
+        width: var(--vanr-button-md-height);
+        height: var(--vanr-button-md-height);
+      }
+
+      &-sm {
+        width: var(--vanr-button-sm-height);
+        height: var(--vanr-button-sm-height);
+      }
+
+      &-xs {
+        width: var(--vanr-button-xs-height);
+        height: var(--vanr-button-xs-height);
+      }
+    }
+  }
+
   &-content {
     display: flex;
+    height: 100%;
     align-items: center;
     justify-content: center;
-    height: 100%;
-
-    // fix icon vertical align
-    // see: https://github.com/youzan/vant/issues/7617
     &::before {
       content: ' ';
     }
@@ -199,8 +224,12 @@
   &-icon {
     font-size: var(--vanr-button-icon-size);
     line-height: inherit;
+
     svg {
       display: block;
+    }
+    &-loading {
+      --vanr-loading-spinner-color: currentColor;
     }
   }
 
@@ -208,6 +237,23 @@
   &-icon-loading + &-text,
   &-text + &-icon,
   &-text + &-icon-loading {
-    margin-left: var(--vanr-padding-base);
+    margin-left: var(--vanr-button-icon-padding);
+  }
+
+  &-hairline {
+    border-width: 0;
+
+    &::after {
+      border-color: inherit;
+      border-radius: calc(var(--vanr-button-border-radius) * 2);
+    }
+
+    &.@{prefixCls}-round::after {
+      border-radius: var(--vanr-button-round-border-radius);
+    }
+
+    &.@{prefixCls}-square::after {
+      border-radius: 0;
+    }
   }
 }

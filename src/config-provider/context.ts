@@ -1,6 +1,9 @@
 import * as React from 'react';
+import { IIconConfig } from '@icon-park/react/lib/runtime';
 
 export interface ConfigConsumerProps {
+  iconConfig?: IIconConfig;
+  rootPrefixCls?: string;
   getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => string;
 }
 
