@@ -9,7 +9,7 @@ export type { ButtonProps } from './button';
 export { default as Button } from './button';
 export type { LoadingProps } from './loading';
 export { default as Loading } from './loading';
-export type { PopupProps } from './popup';
+export type { PopupProps, PopupPosition } from './popup';
 export { default as Popup } from './popup';
 export type { OverlayProps } from './overlay';
 export { default as Overlay } from './overlay';

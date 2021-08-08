@@ -1,0 +1,18 @@
+@import '../../style/themes/index.less';
+
+@prefixCls: ~'@{vanr-prefix}-overlay';
+
+:root {
+  --vanr-overlay-z-index: @overlay-z-index;
+  --vanr-overlay-background-color: @overlay-background-color;
+}
+
+.@{prefixCls} {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--vanr-overlay-z-index);
+  width: 100%;
+  height: 100%;
+  background-color: var(--vanr-overlay-background-color);
+}

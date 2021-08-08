@@ -14,4 +14,12 @@ group:
 
 <code src="./demo/index" hidden/>
 
+## 基础用法
+
+<code src="./demo/basic" pure/>
+
+## 潜入内容
+
+<code src="./demo/content" pure/>
+
 <API/>

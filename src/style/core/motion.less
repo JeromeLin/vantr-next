@@ -1,11 +1,5 @@
-@import '../themes/index';
-
-@keyframes ~'@{vanr-prefix}-rotate' {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
+@import '../mixins/motion';
+@import './motion/fade';
+@import './motion/move';
+@import './motion/slide';
+@import './motion/rotate';
