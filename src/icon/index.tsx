@@ -35,6 +35,10 @@ export interface IconProps extends BaseProps {
    * 填充色
    */
   fill?: string | string[];
+  /**
+   * 图标点击事件
+   */
+  onClick?: (event: React.SyntheticEvent) => void;
 }
 
 const Icon: React.FC<IconProps> = (props) => {

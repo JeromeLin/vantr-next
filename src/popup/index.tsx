@@ -1,9 +1,14 @@
 import * as React from 'react';
+
 import classnames from 'classnames';
-import { BaseProps } from '../_internal/base-props';
-import { ConfigContext } from '../config-provider/context';
-import Overlay from '../overlay';
 import CSSMotion from 'rc-motion';
+import { Close } from '@icon-park/react';
+import Portal from '../_internal/Portal';
+import type { BaseProps, GetContainer } from '../_internal/base-props';
+import { ConfigContext } from '../config-provider/context';
+import Icon from '../icon';
+import Overlay from '../overlay';
+import { useScrollLock } from '../hooks';
 import './style';
 
 export type PopupPosition = 'center' | 'top' | 'right' | 'bottom' | 'left';
@@ -47,10 +52,6 @@ export interface PopupProps extends BaseProps {
    */
   forceRender?: boolean;
   /**
-   * 页面回退时触发关闭
-   */
-  closeOnPopstate?: boolean;
-  /**
    * 点击遮罩层触发关闭
    * @default true
    */
@@ -66,6 +67,24 @@ export interface PopupProps extends BaseProps {
    */
   safeAreaInsetBottom?: boolean;
   /**
+   * 显示关闭图标
+   * @default false
+   */
+  closeable?: boolean;
+  /**
+   * 关闭图标
+   */
+  closeIcon?: React.ReactNode;
+  /**
+   * 关闭图标位置
+   * @default top-right
+   */
+  closeIconPosition?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+  /**
+   * 指定挂载节点
+   */
+  container?: GetContainer;
+  /**
    * 点击弹出层时触发
    */
   onClick?: (event: React.SyntheticEvent) => void;
@@ -74,9 +93,9 @@ export interface PopupProps extends BaseProps {
    */
   onClickOverlay?: (event: React.SyntheticEvent) => void;
   /**
-   * 打开弹出层时触发
+   *
    */
-  onOpen?: () => void;
+  onClickCloseIcon?: (event: React.SyntheticEvent) => void;
   /**
    * 关闭弹出层时触发
    */
@@ -110,14 +129,18 @@ const Popup: React.FC<PopupProps> = (props) => {
     overlayStyle,
     duration,
     round,
-    lockScroll,
+    lockScroll = true,
     forceRender,
-    closeOnPopstate,
     closeOnClickOverlay = true,
     position = 'center',
+    safeAreaInsetBottom,
+    closeable = false,
+    closeIcon,
+    closeIconPosition = 'top-right',
+    container,
     onClick,
     onClickOverlay,
-    onOpen,
+    onClickCloseIcon,
     onClose,
     onOpened,
     onClosed,
@@ -134,6 +157,13 @@ const Popup: React.FC<PopupProps> = (props) => {
     onClickOverlay?.(event);
     closeOnClickOverlay && onClose?.();
   };
+
+  const handleClickCloseIcon = (event: React.SyntheticEvent) => {
+    onClickCloseIcon?.(event);
+    onClose?.();
+  };
+
+  useScrollLock(ref, () => visible && lockScroll);
 
   const styles: React.CSSProperties = {
     ...props.style,
@@ -171,6 +201,7 @@ const Popup: React.FC<PopupProps> = (props) => {
               {
                 [`${prefixCls}-round`]: round,
                 [`${prefixCls}-${position}`]: !!position,
+                [`${prefixCls}-safe-area-inset-bottom`]: safeAreaInsetBottom,
               },
               className,
               props.className,
@@ -178,12 +209,26 @@ const Popup: React.FC<PopupProps> = (props) => {
             style={{ ...style, ...styles }}
             onClick={onClick}
           >
+            {closeable && (
+              <>
+                <Icon
+                  className={`${prefixCls}-close-icon ${prefixCls}-close-icon-${closeIconPosition}`}
+                  onClick={handleClickCloseIcon}
+                >
+                  {closeIcon || <Close />}
+                </Icon>
+              </>
+            )}
             {children}
           </div>
         )}
       </CSSMotion>
     </>
   );
+
+  if (container) {
+    return <Portal container={container}>{content}</Portal>;
+  }
 
   return content;
 };

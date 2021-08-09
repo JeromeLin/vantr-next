@@ -14,6 +14,10 @@
   --vanr-popup-close-icon-z-index: @popup-close-icon-z-index;
 }
 
+.@{vanr-prefix}-overflow-hidden {
+  overflow: hidden !important;
+}
+
 .@{prefixCls} {
   position: fixed;
   max-height: 100%;
@@ -80,7 +84,7 @@
     .safe-area-inset-bottom();
   }
 
-  &__close-icon {
+  &-close-icon {
     position: absolute;
     z-index: var(--vanr-popup-close-icon-z-index);
     color: var(--vanr-popup-close-icon-color);
@@ -91,22 +95,22 @@
       color: var(--vanr-popup-close-icon-active-color);
     }
 
-    &--top-left {
+    &-top-left {
       top: var(--vanr-popup-close-icon-margin);
       left: var(--vanr-popup-close-icon-margin);
     }
 
-    &--top-right {
+    &-top-right {
       top: var(--vanr-popup-close-icon-margin);
       right: var(--vanr-popup-close-icon-margin);
     }
 
-    &--bottom-left {
+    &-bottom-left {
       bottom: var(--vanr-popup-close-icon-margin);
       left: var(--vanr-popup-close-icon-margin);
     }
 
-    &--bottom-right {
+    &-bottom-right {
       right: var(--vanr-popup-close-icon-margin);
       bottom: var(--vanr-popup-close-icon-margin);
     }

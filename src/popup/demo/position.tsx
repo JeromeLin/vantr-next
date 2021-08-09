@@ -47,15 +47,17 @@ export default () => {
     <>
       <CellGroup inset>
         {POSITIONS.map(({ value, label, style }) => (
-          <Cell key={value} onClick={() => changeVisible(value)} arrow>
-            {label}
+          <div key={value}>
+            <Cell onClick={() => changeVisible(value)} arrow>
+              {label}
+            </Cell>
             <Popup
               visible={visible[value]}
               position={value}
               onClose={() => changeVisible(value)}
               style={style}
             />
-          </Cell>
+          </div>
         ))}
       </CellGroup>
     </>

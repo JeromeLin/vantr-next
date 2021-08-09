@@ -15,3 +15,5 @@ export interface BaseProps {
    */
   style?: React.CSSProperties;
 }
+
+export type GetContainer = string | HTMLElement | (() => HTMLElement);
