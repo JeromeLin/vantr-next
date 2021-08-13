@@ -3,9 +3,6 @@ title: Cell 单元格
 nav:
   title: 组件
   path: /components
-group:
-  title: 基础组件
-  path: /basic
 ---
 
 # Cell 单元格

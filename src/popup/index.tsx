@@ -1,11 +1,10 @@
 import * as React from 'react';
-
+import { useRef, useContext } from 'react';
 import classnames from 'classnames';
 import CSSMotion from 'rc-motion';
 import { Close } from '@icon-park/react';
-import Portal from '../_internal/Portal';
-import type { BaseProps, GetContainer } from '../_internal/base-props';
-import { ConfigContext } from '../config-provider/context';
+import { isDefine, Portal, BaseProps, GetContainer } from '../_internal';
+import { ConfigContext } from '../config-provider';
 import Icon from '../icon';
 import Overlay from '../overlay';
 import { useScrollLock } from '../hooks';
@@ -146,9 +145,9 @@ const Popup: React.FC<PopupProps> = (props) => {
     onClosed,
     children,
   } = props;
-  const ref = React.useRef<HTMLDivElement>(null);
-  const zIndex = React.useRef<number>(++globalZIndex);
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  const ref = useRef<HTMLDivElement>(null);
+  const zIndex = useRef<number>(++globalZIndex);
+  const { getPrefixCls } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('popup', customizePrefixCls);
 
   const isCenter = position === 'center';
@@ -170,7 +169,7 @@ const Popup: React.FC<PopupProps> = (props) => {
     zIndex: zIndex.current,
   };
 
-  if (duration) {
+  if (isDefine(duration)) {
     const key = isCenter ? 'animationDuration' : 'transitionDuration';
     styles[key] = `${duration}s`;
   }
@@ -210,14 +209,12 @@ const Popup: React.FC<PopupProps> = (props) => {
             onClick={onClick}
           >
             {closeable && (
-              <>
-                <Icon
-                  className={`${prefixCls}-close-icon ${prefixCls}-close-icon-${closeIconPosition}`}
-                  onClick={handleClickCloseIcon}
-                >
-                  {closeIcon || <Close />}
-                </Icon>
-              </>
+              <Icon
+                className={`${prefixCls}-close-icon ${prefixCls}-close-icon-${closeIconPosition}`}
+                onClick={handleClickCloseIcon}
+              >
+                {closeIcon || <Close />}
+              </Icon>
             )}
             {children}
           </div>

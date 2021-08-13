@@ -1,7 +1,13 @@
 import * as React from 'react';
+import { useEffect, useContext } from 'react';
 import useTouch from '../useTouch';
-import { ConfigContext } from '../../config-provider/context';
-import { supportsPassive, getScrollParent, isFunction } from '../../_internal';
+import { ConfigContext } from '../../config-provider';
+import {
+  isFunction,
+  supportsPassive,
+  getScrollParent,
+  preventDefault,
+} from '../../_internal';
 
 let totalLockCount = 0;
 
@@ -9,7 +15,7 @@ const useScrollLock = (
   rootRef: React.RefObject<HTMLElement>,
   shouldLock: boolean | (() => boolean),
 ) => {
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls } = useContext(ConfigContext);
   const BODY_LOCK_CLASS = getPrefixCls('overflow-hidden');
   const touch = useTouch();
 
@@ -35,10 +41,7 @@ const useScrollLock = (
       touch.isVertical() &&
       !(parseInt(status, 2) & parseInt(direction, 2))
     ) {
-      if (typeof event.cancelable !== 'boolean' || event.cancelable) {
-        event.preventDefault();
-      }
-      event.stopPropagation();
+      preventDefault(event, true);
     }
   };
 
@@ -70,7 +73,7 @@ const useScrollLock = (
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isFunction(shouldLock) ? shouldLock() : shouldLock) {
       lock();
       return () => {

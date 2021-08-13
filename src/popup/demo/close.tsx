@@ -47,7 +47,7 @@ export default () => {
     <>
       <CellGroup inset>
         {CLOSE.map(({ value, label, props }) => (
-          <div key={value}>
+          <React.Fragment key={value}>
             <Cell onClick={() => changeVisible(value)} arrow>
               {label}
             </Cell>
@@ -61,7 +61,7 @@ export default () => {
               }}
               closeable
             />
-          </div>
+          </React.Fragment>
         ))}
       </CellGroup>
     </>

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import classnames from 'classnames';
 import { IconProvider, DEFAULT_ICON_CONFIGS } from '@icon-park/react';
-import { BaseProps } from '../_internal/base-props';
-import { ConfigContext } from '../config-provider/context';
+import type { BaseProps } from '../_internal';
+import { ConfigContext } from '../config-provider';
 import './style';
 
 export interface IconProps extends BaseProps {

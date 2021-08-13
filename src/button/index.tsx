@@ -1,8 +1,9 @@
 import * as React from 'react';
+import { useMemo, useCallback } from 'react';
 import classnames from 'classnames';
 import Loading, { LoadingType } from '../loading';
-import type { BaseProps } from '../_internal/base-props';
-import { ConfigContext } from '../config-provider/context';
+import type { BaseProps } from '../_internal';
+import { ConfigContext } from '../config-provider';
 import './style';
 
 export interface ButtonProps extends BaseProps {
@@ -128,7 +129,7 @@ const Button: React.FC<ButtonProps> = (props) => {
     className,
   );
 
-  const styles = React.useMemo(() => {
+  const styles = useMemo(() => {
     const s: React.CSSProperties = { ...style };
 
     if (!color) return s;
@@ -155,7 +156,7 @@ const Button: React.FC<ButtonProps> = (props) => {
     onClick?.(event);
   };
 
-  const renderIcon = React.useCallback(() => {
+  const renderIcon = useCallback(() => {
     if (loading) {
       return (
         <Loading
@@ -170,7 +171,7 @@ const Button: React.FC<ButtonProps> = (props) => {
     }
   }, [loading, icon]);
 
-  const renderText = React.useCallback(() => {
+  const renderText = useCallback(() => {
     const text = loading ? loadingText : children;
     if (text) {
       return <span className={`${prefixCls}-text`}>{text}</span>;

@@ -1,6 +1,3 @@
-@hd: 1 * @rpx;
-@rpx: 0.5 * @hd;
-
 // The prefix to use on all css classes from vantr.
 @vanr-prefix: vanr;
 
@@ -43,7 +40,7 @@
 @text-link-color: #576b95;
 
 // Padding
-@padding-base: 8 * @rpx;
+@padding-base: 4px;
 @padding-xs: @padding-base * 2;
 @padding-sm: @padding-base * 3;
 @padding-md: @padding-base * 4;
@@ -51,15 +48,15 @@
 @padding-xl: @padding-base * 8;
 
 // Font
-@font-size-xs: 20 * @rpx;
-@font-size-sm: 24 * @rpx;
-@font-size-md: 28 * @rpx;
-@font-size-lg: 32 * @rpx;
+@font-size-xs: 10px;
+@font-size-sm: 12px;
+@font-size-md: 14px;
+@font-size-lg: 16px;
 @font-weight-bold: 500;
-@line-height-xs: 28 * @rpx;
-@line-height-sm: 36 * @rpx;
-@line-height-md: 40 * @rpx;
-@line-height-lg: 44 * @rpx;
+@line-height-xs: 14px;
+@line-height-sm: 18px;
+@line-height-md: 20px;
+@line-height-lg: 22px;
 @base-font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
   Helvetica, Segoe UI, Arial, Roboto, 'PingFang SC', 'miui', 'Hiragino Sans GB',
   'Microsoft Yahei', sans-serif;
@@ -87,25 +84,24 @@
 
 // Border
 @border-color: var(--vanr-gray-3);
-@border-width-base: 2 * @rpx;
-@border-radius-xs: 2 * @rpx;
-@border-radius-sm: 4 * @rpx;
-@border-radius-md: 8 * @rpx;
-@border-radius-lg: 16 * @rpx;
+@border-width-base: 1px;
+@border-radius-sm: 2px;
+@border-radius-md: 4px;
+@border-radius-lg: 8px;
 @border-radius-max: 50vh;
 
 // Button
-@button-xs-height: 48 * @rpx;
+@button-xs-height: 24px;
 @button-xs-padding: 0 var(--vanr-padding-base);
 @button-xs-font-size: var(--vanr-font-size-xs);
-@button-sm-height: 64 * @rpx;
+@button-sm-height: 32px;
 @button-sm-padding: 0 var(--vanr-padding-xs);
 @button-sm-font-size: var(--vanr-font-size-sm);
-@button-md-height: 88 * @rpx;
-@button-md-padding: 0 30 * @rpx;
+@button-md-height: 44px;
+@button-md-padding: 0 16px;
 @button-md-font-size: var(--vanr-font-size-md);
-@button-lg-height: 100 * @rpx;
-@button-default-height: 88 * @rpx;
+@button-lg-height: 50px;
+@button-default-height: 44px;
 @button-default-line-height: 1.2;
 @button-default-font-size: var(--vanr-font-size-lg);
 @button-default-color: var(--vanr-text-color);
@@ -129,13 +125,13 @@
 @button-plain-background-color: var(--vanr-white);
 @button-disabled-opacity: var(--vanr-disabled-opacity);
 @button-icon-size: 1.2em;
-@button-loading-icon-size: 40 * @rpx;
+@button-loading-icon-size: 20px;
 
 // Icon
-@icon-size-xs: 32 * @rpx;
-@icon-size-sm: 42 * @rpx;
-@icon-size-md: 48 * @rpx;
-@icon-size-lg: 56 * @rpx;
+@icon-size-xs: 16px;
+@icon-size-sm: 20px;
+@icon-size-md: 24px;
+@icon-size-lg: 28px;
 
 // Loading
 @loading-text-color: var(--vanr-gray-6);
@@ -144,10 +140,10 @@
 @loading-text-font-size-md: var(--vanr-font-size-md);
 @loading-text-font-size-lg: var(--vanr-font-size-lg);
 @loading-spinner-color: var(--vanr-gray-5);
-@loading-spinner-size-xs: 28 * @rpx;
-@loading-spinner-size-sm: 40 * @rpx;
-@loading-spinner-size-md: 46 * @rpx;
-@loading-spinner-size-lg: 60 * @rpx;
+@loading-spinner-size-xs: 14px;
+@loading-spinner-size-sm: 20px;
+@loading-spinner-size-md: 26px;
+@loading-spinner-size-lg: 32px;
 @loading-spinner-animation-duration: 0.8s;
 
 // CellGroup
@@ -156,7 +152,7 @@
 @cell-group-title-padding: var(--vanr-padding-md) var(--vanr-padding-md)
   var(--vanr-padding-xs);
 @cell-group-title-font-size: var(--vanr-font-size-md);
-@cell-group-title-line-height: 32 * @rpx;
+@cell-group-title-line-height: 16px;
 @cell-group-inset-padding: 0 var(--vanr-padding-md);
 @cell-group-inset-border-radius: var(--vanr-border-radius-lg);
 @cell-group-inset-title-padding: var(--vanr-padding-md) var(--vanr-padding-md)
@@ -164,7 +160,7 @@
 
 // Cell
 @cell-font-size: var(--vanr-font-size-md);
-@cell-vertical-padding: 20 * @rpx;
+@cell-vertical-padding: 10px;
 @cell-horizontal-padding: var(--vanr-padding-md);
 @cell-text-color: var(--vanr-text-color);
 @cell-background-color: var(--vanr-white);
@@ -176,7 +172,7 @@
 @cell-brief-line-height: var(--vanr-line-height-sm);
 @cell-brief-margin-top: var(--vanr-padding-base);
 @cell-extra-color: var(--vanr-gray-6);
-@cell-icon-size: 32 * @rpx;
+@cell-icon-size: 16px;
 @cell-right-icon-color: var(--vanr-gray-6);
 @cell-large-vertical-padding: var(--vanr-padding-sm);
 @cell-large-content-font-size: var(--vanr-font-size-lg);
@@ -189,12 +185,44 @@
 // Popup
 @popup-background-color: var(--vanr-white);
 @popup-transition: transform var(--vanr-animation-duration-base);
-@popup-round-border-radius: 32 * @rpx;
-@popup-close-icon-size: 36 * @rpx;
+@popup-round-border-radius: 16px;
+@popup-close-icon-size: 18px;
 @popup-close-icon-color: var(--vanr-gray-5);
 @popup-close-icon-active-color: var(--vanr-gray-6);
-@popup-close-icon-margin: 32 * @rpx;
+@popup-close-icon-margin: 16px;
 @popup-close-icon-z-index: 1;
+
+// Toast
+@toast-max-width: 70%;
+@toast-font-size: var(--vanr-font-size-md);
+@toast-text-color: var(--vanr-white);
+@toast-loading-icon-color: var(--vanr-white);
+@toast-line-height: var(--vanr-line-height-md);
+@toast-border-radius: var(--vanr-border-radius-lg);
+@toast-background-color: rgba(0, 0, 0, 0.7);
+@toast-icon-size: 36px;
+@toast-text-min-width: 96px;
+@toast-text-padding: var(--vanr-padding-xs) var(--vanr-padding-sm);
+@toast-default-padding: var(--vanr-padding-md);
+@toast-default-width: 88px;
+@toast-default-min-height: 88px;
+@toast-position-top-distance: 20%;
+@toast-position-bottom-distance: 20%;
+
+// Badge
+@badge-height: 14px;
+@badge-height-large: 20px;
+@badge-dot-size: 6px;
+@badge-font-size: var(--vanr-font-size-xs);
+@badge-font-size-large: var(--vanr-font-size-sm);
+@badge-font-weight: normal;
+@badge-text-color: @white;
+@badge-background-color: var(--vanr-danger-color);
+@badge-border-color: @white;
+@badge-zindex: auto;
+
+// ScrollNumber
+@scroll-number-height: 20px;
 
 :root {
   // Color Palette

@@ -1,0 +1,85 @@
+@import '../../style/themes/index';
+
+@prefixCls: ~'@{vanr-prefix}-toast';
+
+:root {
+  --vanr-toast-max-width: @toast-max-width;
+  --vanr-toast-font-size: @toast-font-size;
+  --vanr-toast-text-color: @toast-text-color;
+  --vanr-toast-loading-icon-color: @toast-loading-icon-color;
+  --vanr-toast-line-height: @toast-line-height;
+  --vanr-toast-border-radius: @toast-border-radius;
+  --vanr-toast-background-color: @toast-background-color;
+  --vanr-toast-icon-size: @toast-icon-size;
+  --vanr-toast-text-min-width: @toast-text-min-width;
+  --vanr-toast-text-padding: @toast-text-padding;
+  --vanr-toast-default-padding: @toast-default-padding;
+  --vanr-toast-default-width: @toast-default-width;
+  --vanr-toast-default-min-height: @toast-default-min-height;
+  --vanr-toast-position-top-distance: @toast-position-top-distance;
+  --vanr-toast-position-bottom-distance: @toast-position-bottom-distance;
+}
+
+.@{prefixCls} {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: content-box;
+  transition: all var(--vanr-animation-duration-fast);
+
+  width: var(--vanr-toast-default-width);
+  max-width: var(--vanr-toast-max-width);
+  min-height: var(--vanr-toast-default-min-height);
+  padding: var(--vanr-toast-default-padding);
+  color: var(--vanr-toast-text-color);
+  font-size: var(--vanr-toast-font-size);
+  line-height: var(--vanr-toast-line-height);
+
+  white-space: pre-wrap;
+  text-align: center;
+  word-break: break-all;
+  background-color: var(--vanr-toast-background-color);
+  border-radius: var(--vanr-toast-border-radius);
+
+  &-unclickable {
+    overflow: hidden;
+    cursor: not-allowed;
+    * {
+      pointer-events: none;
+    }
+  }
+
+  &-text {
+    width: fit-content;
+    min-width: var(--vanr-toast-text-min-width);
+    min-height: 0;
+    padding: var(--vanr-toast-text-padding);
+
+    .@{prefixCls}-text {
+      margin-top: 0;
+    }
+  }
+
+  &-top {
+    top: var(--vanr-toast-position-top-distance);
+  }
+
+  &-bottom {
+    top: auto;
+    bottom: var(--vanr-toast-position-bottom-distance);
+  }
+
+  &-icon {
+    font-size: var(--vanr-toast-icon-size);
+  }
+
+  &-loading {
+    padding: var(--vanr-padding-base);
+    color: var(--vanr-toast-loading-icon-color);
+  }
+
+  &-text {
+    margin-top: var(--vanr-padding-xs);
+  }
+}

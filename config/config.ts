@@ -1,18 +1,44 @@
 import { defineConfig } from 'dumi';
 
+const components = [
+  {
+    title: '基础组件',
+    children: [
+      'button',
+      'cell',
+      'config-provider',
+      'icon',
+      'popup',
+      'style',
+      'toast',
+    ],
+  },
+  {
+    title: '反馈组件',
+    children: ['loading', 'overlay'],
+  },
+  {
+    title: '展示组件',
+    children: ['badge'],
+  },
+];
+
 export default defineConfig({
   // mfsu: {},
+  mode: 'site',
   title: 'Vantr',
   favicon: 'https://img.yzcdn.cn/vant/logo.png',
   logo: 'https://img.yzcdn.cn/vant/logo.png',
-  outputPath: 'build',
-  mode: 'site',
   locales: [['zh-CN', '中文']],
-  theme: {
-    '@hd': '0.02rem',
-  },
-  targets: {
-    ios: 8,
+  outputPath: 'build',
+  navs: [
+    {
+      title: '组件',
+      path: '/components',
+    },
+  ],
+  menus: {
+    '/components': components,
   },
   styles: [
     `
@@ -36,5 +62,13 @@ export default defineConfig({
   }
   `,
   ],
-  // more config: https://d.umijs.org/config
+  resolve: {
+    includes: ['docs', 'src'],
+    passivePreview: true,
+  },
+  themeConfig: {
+    hd: {
+      rules: [],
+    },
+  },
 });

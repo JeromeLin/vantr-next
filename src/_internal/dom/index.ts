@@ -1,5 +1,5 @@
 import type { GetContainer } from '../base-props';
-import { isFunction, isObject, isString } from '../utils';
+import { isFunction, isObject, isString } from '..';
 
 export const canUseDocument = () =>
   !!(
@@ -8,7 +8,7 @@ export const canUseDocument = () =>
     window.document.createElement
   );
 
-export const getContainer = (container: GetContainer): HTMLElement | null => {
+export const getContainer = (container?: GetContainer): HTMLElement | null => {
   if (!canUseDocument()) return null;
   if (isString(container)) {
     return document.querySelector(container);

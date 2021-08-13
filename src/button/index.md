@@ -3,9 +3,6 @@ title: Button 按钮
 nav:
   title: 组件
   path: /components
-group:
-  title: 基础组件
-  path: /basic
 ---
 
 # Button 按钮

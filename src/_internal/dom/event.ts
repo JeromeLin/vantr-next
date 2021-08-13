@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { canUseDocument } from '.';
 
-export function stopPropagation(event: React.SyntheticEvent) {
+export function stopPropagation(event: Event | React.SyntheticEvent) {
   event.stopPropagation();
 }
 
 export function preventDefault(
-  event: React.SyntheticEvent,
+  event: Event | React.SyntheticEvent,
   isStopPropagation?: boolean,
 ) {
   if (typeof event.cancelable !== 'boolean' || event.cancelable) {

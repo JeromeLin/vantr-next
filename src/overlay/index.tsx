@@ -1,9 +1,9 @@
 import * as React from 'react';
+import { useRef, useContext } from 'react';
 import classnames from 'classnames';
 import CSSMotion from 'rc-motion';
-import { BaseProps } from '../_internal/base-props';
-import { preventDefault } from '../_internal/dom/event';
-import { ConfigContext } from '../config-provider/context';
+import { isDefine, preventDefault, BaseProps } from '../_internal';
+import { ConfigContext } from '../config-provider';
 import './style';
 
 export interface OverlayProps extends BaseProps {
@@ -40,8 +40,8 @@ const Overlay: React.FC<OverlayProps> = (props) => {
     onClick,
     children,
   } = props;
-  const ref = React.useRef<HTMLDivElement>(null);
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  const ref = useRef<HTMLDivElement>(null);
+  const { getPrefixCls } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('overlay', customizePrefixCls);
 
   const preventTouchMove = (event: React.TouchEvent) => {
@@ -50,7 +50,7 @@ const Overlay: React.FC<OverlayProps> = (props) => {
 
   const styles: React.CSSProperties = { ...props.style };
 
-  if (duration) {
+  if (isDefine(duration)) {
     styles.animationDuration = `${duration}s`;
   }
 

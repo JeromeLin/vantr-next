@@ -3,9 +3,9 @@
   .make-motion(@name, @keyframeName, @duration);
   .@{name}-enter,
   .@{name}-appear {
+    transform: scale(0);
     animation-timing-function: @ease-out-circ;
     opacity: 0;
-    transform: scale(0);
 
     &-prepare {
       transform: none;

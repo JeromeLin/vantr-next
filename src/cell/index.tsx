@@ -1,10 +1,10 @@
 import * as React from 'react';
 import classnames from 'classnames';
-import Icon from '../icon';
-import { ConfigContext } from '../config-provider/context';
-import { BaseProps } from '../_internal/base-props';
-import './style';
 import { Down, Left, Right, Up } from '@icon-park/react';
+import Icon from '../icon';
+import { ConfigContext } from '../config-provider';
+import type { BaseProps } from '../_internal';
+import './style';
 
 export interface CellProps extends BaseProps {
   /** 设置右侧内容 */

@@ -1,4 +1,4 @@
-@import '../../style/themes/index.less';
+@import '../../style/themes/index';
 @import '../../style/mixins/hairline.less';
 
 @prefixCls: ~'@{vanr-prefix}-cell';
@@ -35,13 +35,8 @@
   color: var(--vanr-cell-text-color);
   font-size: var(--vanr-cell-font-size);
 
-  &::after {
+  &-border:not(:last-child)::after {
     .hairline-bottom(var(--vanr-cell-border-color), var(--vanr-padding-md), var(--vanr-padding-md));
-  }
-
-  &:last-child::after,
-  &-borderless::after {
-    display: none;
   }
 
   &-brief {

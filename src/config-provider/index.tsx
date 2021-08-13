@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { IIconConfig } from '@icon-park/react/lib/runtime';
-import { ConfigConsumerProps } from './context';
+import { ConfigContext, ConfigConsumerProps } from './context';
 
 export interface ConfigProviderProps {
   /**
@@ -43,4 +43,5 @@ const ConfigProvider: React.FC<ConfigProviderProps> = (props) => {
   return <></>;
 };
 
+export { ConfigContext };
 export default ConfigProvider;

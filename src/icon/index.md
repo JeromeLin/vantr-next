@@ -3,9 +3,6 @@ title: Icon 图标
 nav:
   title: 组件
   path: /components
-group:
-  title: 基础组件
-  path: /basic
 ---
 
 # Icon 图标

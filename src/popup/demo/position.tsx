@@ -47,7 +47,7 @@ export default () => {
     <>
       <CellGroup inset>
         {POSITIONS.map(({ value, label, style }) => (
-          <div key={value}>
+          <React.Fragment key={value}>
             <Cell onClick={() => changeVisible(value)} arrow>
               {label}
             </Cell>
@@ -57,7 +57,7 @@ export default () => {
               onClose={() => changeVisible(value)}
               style={style}
             />
-          </div>
+          </React.Fragment>
         ))}
       </CellGroup>
     </>

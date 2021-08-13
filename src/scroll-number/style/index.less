@@ -1,0 +1,33 @@
+@import '../../style/themes/index';
+
+@prefixCls: ~'@{vanr-prefix}-scroll-number';
+
+:root {
+  --vanr-scroll-number-height: @scroll-number-height;
+}
+
+.safari-fix-motion() {
+  -webkit-transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+}
+
+.@{prefixCls} {
+  overflow: hidden;
+  &-only {
+    position: relative;
+    display: inline-block;
+    height: var(--vanr-scroll-number-height);
+    transition: all @animation-duration-fast @ease-in-out;
+    .safari-fix-motion;
+
+    > p.@{prefixCls}-only-unit {
+      height: var(--vanr-scroll-number-height);
+      margin: 0;
+      .safari-fix-motion;
+    }
+  }
+
+  &-symbol {
+    vertical-align: top;
+  }
+}

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classnames from 'classnames';
-import { BaseProps } from '../_internal/base-props';
-import { ConfigContext } from '../config-provider/context';
+import { BaseProps } from '../_internal';
+import { ConfigContext } from '../config-provider';
 import './style';
 
 export type LoadingType = 'circular' | 'spinner';

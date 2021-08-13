@@ -3,9 +3,6 @@ title: ConfigProvider 全局配置
 nav:
   title: 组件
   path: /components
-group:
-  title: 基础组件
-  path: /basic
 ---
 
 # ConfigProvider 全局配置
