@@ -42,6 +42,7 @@ const Overlay: React.FC<OverlayProps> = (props) => {
   } = props;
   const ref = useRef<HTMLDivElement>(null);
   const { getPrefixCls } = useContext(ConfigContext);
+  const prefix = getPrefixCls();
   const prefixCls = getPrefixCls('overlay', customizePrefixCls);
 
   const preventTouchMove = (event: React.TouchEvent) => {
@@ -59,7 +60,7 @@ const Overlay: React.FC<OverlayProps> = (props) => {
   }
 
   return (
-    <CSSMotion visible={visible} motionName="vanr-fade">
+    <CSSMotion visible={visible} motionName={`${prefix}-fade`}>
       {({ className, style }) => (
         <div
           ref={ref}

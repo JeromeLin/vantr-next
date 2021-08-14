@@ -111,14 +111,6 @@ export interface PopupProps extends BaseProps {
 
 let globalZIndex = 2000;
 
-const transitionNames = {
-  center: 'vanr-fade',
-  top: 'vanr-move-up',
-  right: 'vanr-move-right',
-  bottom: 'vanr-move-down',
-  left: 'vanr-move-left',
-};
-
 const Popup: React.FC<PopupProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
@@ -148,6 +140,7 @@ const Popup: React.FC<PopupProps> = (props) => {
   const ref = useRef<HTMLDivElement>(null);
   const zIndex = useRef<number>(++globalZIndex);
   const { getPrefixCls } = useContext(ConfigContext);
+  const prefix = getPrefixCls();
   const prefixCls = getPrefixCls('popup', customizePrefixCls);
 
   const isCenter = position === 'center';
@@ -173,6 +166,14 @@ const Popup: React.FC<PopupProps> = (props) => {
     const key = isCenter ? 'animationDuration' : 'transitionDuration';
     styles[key] = `${duration}s`;
   }
+
+  const transitionNames = {
+    center: `${prefix}-fade`,
+    top: `${prefix}-move-up`,
+    right: `${prefix}-move-right`,
+    bottom: `${prefix}-move-down`,
+    left: `${prefix}-move-left`,
+  };
 
   const content = (
     <>

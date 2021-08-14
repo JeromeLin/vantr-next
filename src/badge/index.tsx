@@ -150,13 +150,16 @@ const Badge: React.FC<BadgeProps> = (props) => {
 
           const isDot = isDotRef.current;
 
-          const scrollNumberCls = classnames({
-            [`${prefixCls}-dot`]: isDot,
-            [`${prefixCls}-count`]: !isDot,
-            [`${prefixCls}-count-large`]: size === 'large',
-            [`${prefixCls}-multiple-words`]:
-              !isDot && displayCount && displayCount.toString().length > 1,
-          });
+          const scrollNumberCls = classnames(
+            {
+              [`${prefixCls}-dot`]: isDot,
+              [`${prefixCls}-count`]: !isDot,
+              [`${prefixCls}-count-large`]: size === 'large',
+              [`${prefixCls}-multiple-words`]:
+                !isDot && displayCount && displayCount.toString().length > 1,
+            },
+            motionClassName,
+          );
 
           let scrollNumberStyle: React.CSSProperties = { ...mergedStyle };
           if (color) {
@@ -167,8 +170,6 @@ const Badge: React.FC<BadgeProps> = (props) => {
           return (
             <ScrollNumber
               prefixCls={scrollNumberPrefixCls}
-              show={!isHidden}
-              motionClassName={motionClassName}
               className={scrollNumberCls}
               count={displayCount}
               style={scrollNumberStyle}

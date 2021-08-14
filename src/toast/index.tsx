@@ -11,7 +11,7 @@ import {
 } from '../_internal';
 import Popup from '../popup';
 import Loading, { LoadingType } from '../loading';
-import { ConfigContext } from 'src/config-provider';
+import { ConfigContext } from '../config-provider';
 import Icon from '../icon';
 import './style';
 

@@ -27,3 +27,9 @@ export { default as ConfigProvider } from './config-provider';
 
 export type { ScrollNumberProps, ScrollNumberState } from './scroll-number';
 export { default as ScrollNumber } from './scroll-number';
+
+export type { TagProps } from './tag';
+export { default as Tag } from './tag';
+
+export type { ToastProps, ToastOptions } from './toast';
+export { default as Toast } from './toast';

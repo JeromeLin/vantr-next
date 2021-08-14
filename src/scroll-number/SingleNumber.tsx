@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import classNames from 'classnames';
+import classnames from 'classnames';
 
 export interface UnitNumberProps {
   prefixCls: string;
@@ -30,7 +30,7 @@ function UnitNumber({
   return (
     <span
       style={style}
-      className={classNames(`${prefixCls}-only-unit`, {
+      className={classnames(`${prefixCls}-only-unit`, {
         current,
       })}
     >

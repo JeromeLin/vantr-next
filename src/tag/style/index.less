@@ -1,0 +1,122 @@
+@import '../../style/themes/index';
+
+@prefixCls: ~'@{vanr-prefix}-tag';
+
+:root {
+  --vanr-tag-text-color: @tag-text-color;
+  --vanr-tag-font-size: @tag-font-size;
+  --vanr-tag-border-radius: @tag-border-radius;
+  --vanr-tag-line-height: @tag-line-height;
+  --vanr-tag-padding: @tag-padding;
+  --vanr-tag-sm-padding: @tag-sm-padding;
+  --vanr-tag-lg-padding: @tag-lg-padding;
+  --vanr-tag-lg-border-radius: @tag-lg-border-radius;
+  --vanr-tag-lg-font-size: @tag-lg-font-size;
+  --vanr-tag-round-border-radius: @tag-round-border-radius;
+  --vanr-tag-danger-color: @tag-danger-color;
+  --vanr-tag-primary-color: @tag-primary-color;
+  --vanr-tag-success-color: @tag-success-color;
+  --vanr-tag-warning-color: @tag-warning-color;
+  --vanr-tag-default-color: @tag-default-color;
+  --vanr-tag-plain-background-color: @tag-plain-background-color;
+}
+
+.@{prefixCls} {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: var(--vanr-tag-padding);
+  color: var(--vanr-tag-text-color);
+  font-size: var(--vanr-tag-font-size);
+  line-height: var(--vanr-tag-line-height);
+  border-radius: var(--vanr-tag-border-radius);
+
+  &-default {
+    background-color: var(--vanr-tag-default-color);
+
+    &.@{prefixCls}-plain {
+      color: var(--vanr-tag-default-color);
+    }
+  }
+
+  &-danger {
+    background-color: var(--vanr-tag-danger-color);
+
+    &.@{prefixCls}-plain {
+      color: var(--vanr-tag-danger-color);
+    }
+  }
+
+  &-primary {
+    background-color: var(--vanr-tag-primary-color);
+
+    &.@{prefixCls}-plain {
+      color: var(--vanr-tag-primary-color);
+    }
+  }
+
+  &-success {
+    background-color: var(--vanr-tag-success-color);
+
+    &.@{prefixCls}-plain {
+      color: var(--vanr-tag-success-color);
+    }
+  }
+
+  &-warning {
+    background-color: var(--vanr-tag-warning-color);
+
+    &.@{prefixCls}-plain {
+      color: var(--vanr-tag-warning-color);
+    }
+  }
+
+  &-plain {
+    background-color: var(--vanr-tag-plain-background-color);
+    border-color: currentColor;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      border: 1px solid;
+      border-color: inherit;
+      border-radius: inherit;
+      content: '';
+      pointer-events: none;
+    }
+  }
+
+  &-sm {
+    padding: var(--vanr-tag-sm-padding);
+  }
+
+  &-lg {
+    padding: var(--vanr-tag-lg-padding);
+    font-size: var(--vanr-tag-lg-font-size);
+    border-radius: var(--vanr-tag-lg-border-radius);
+  }
+
+  &-mark {
+    border-radius: 0 var(--vanr-tag-round-border-radius)
+      var(--vanr-tag-round-border-radius) 0;
+
+    &::after {
+      display: block;
+      width: 2px;
+      content: '';
+    }
+  }
+
+  &-round {
+    border-radius: var(--vanr-tag-round-border-radius);
+  }
+
+  &-close {
+    margin-left: 2px;
+    cursor: pointer;
+    font-size: 12px;
+  }
+}
