@@ -19,7 +19,7 @@ const components = [
   },
   {
     title: '展示组件',
-    children: ['badge', 'tag', 'scroll-number'],
+    children: ['badge', 'collapse', 'tag', 'scroll-number'],
   },
 ];
 

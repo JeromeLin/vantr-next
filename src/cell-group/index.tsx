@@ -39,6 +39,7 @@ const CellGroup: React.FC<CellGroupProps> = (props) => {
     prefixCls,
     {
       [`${prefixCls}-inset`]: inset,
+      [`${prefix}-hairline-surround`]: border && inset,
       [`${prefix}-hairline-top-bottom`]: border && !inset,
     },
     className,
